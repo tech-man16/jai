@@ -2,7 +2,7 @@ import { readFileSync, readdirSync } from 'fs';
 
 import { NextRequest, NextResponse } from 'next/server';
 
-export async function GET(req:NextRequest=null) {
+export async function GET(req:any){
   const url = new URL(req.url)
   const filename = url.searchParams.get("file") ;
   const file = readFileSync(`./app/api/assets/${filename}`);
