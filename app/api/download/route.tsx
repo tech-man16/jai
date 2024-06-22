@@ -4,7 +4,7 @@ import { NextRequest, NextResponse } from 'next/server';
 
 export const fetchCache = "force-no-store";
 
-export async function GET(req:any){
+export async function GET(req:NextRequest){
   try{
     const url = new URL(req.url)
     const filename = url.searchParams.get("file") ;
@@ -19,6 +19,6 @@ export async function GET(req:any){
       headers,
     });
   } catch(e){
-    return NextResponse.json({message:"Failed"});
+    return NextResponse.json({message:e});
   }
 }
