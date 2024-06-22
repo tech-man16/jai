@@ -6,15 +6,23 @@ import { useState } from "react";
 export default function Page1() {
 
   const [msg, updateMsg] = useState("")
-
+  const submit = async()=>{
+    const formData = new FormData();
+    formData.append("file", file);
+    
+    fetch("./app/api/download?file=sepm_lab.doc", {
+        method: "POST",
+        body: formData,
+    })
+        .then(res => res.json())
+        .then(data => {
+            console.log(data)
+            window.location.reload();
+        })
+  }
   return (
     <>
-      <button onClick={async() => {
-        const req = await fetch('./api/download?file=sepm_lab.doc');
-        const res = await req.json()
-        console.log(res.message);
-        //updateMsg(res.message) ;
-      }}> Next page
+      <button onClick={submit}}> Next page
       </button>
 
       {msg}
