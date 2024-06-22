@@ -26,3 +26,5 @@ export async function GET(req:NextRequest){
     return NextResponse.json({message:e});
   }
 }
+
+export const dynamic = "force-static";
