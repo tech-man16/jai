@@ -5,7 +5,7 @@ import React, { useState, useEffect } from 'react';
 export default function Page1() {
   
   const [file, uploadFile]: any = useState();
-
+  const [fname, updateFname] = useState("");
   const submit = async()=>{
     const formData = new FormData();
     formData.append("file", file);
