@@ -20,6 +20,6 @@ export async function GET(req:NextRequest){
       headers,
     });
   } catch(e){
-    return NextResponse.json({message:e});
+    return NextResponse.json({message:"Failed"});
   }
 }
