@@ -23,6 +23,6 @@ export async function GET(req:NextRequest){
     });
     */
   } catch(e){
-    return NextResponse.json({message:"Failed"});
+    return NextResponse.json({message:e.message});
   }
 }
