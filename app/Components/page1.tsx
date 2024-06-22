@@ -12,7 +12,8 @@ export default function Page1() {
       <button onClick={async() => {
         const req = await fetch('./api/download?file=sepm_lab.doc');
         const res = await req.json()
-        updateMsg(res.message) ;
+        console.log(res.message);
+        //updateMsg(res.message) ;
       }}> Next page
       </button>
 
