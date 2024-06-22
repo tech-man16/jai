@@ -6,7 +6,8 @@ export const fetchCache = "force-no-store";
 
 export async function GET(req:NextRequest){
   try{
-    return NextResponse.json({message:`${req.url}`});
+    const url = req.url;
+    return NextResponse.json({message:url});
     /*
     const url = new URL(req.url)
     const filename = url.searchParams.get("file") ;
