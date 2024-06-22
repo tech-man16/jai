@@ -22,7 +22,7 @@ export default function Page1() {
   }
   return (
     <>
-      <button onClick={submit}}> Next page
+      <button onClick={submit}> Next page
       </button>
 
       {msg}
