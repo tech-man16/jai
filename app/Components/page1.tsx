@@ -6,6 +6,7 @@ export default function Page1() {
   
   const [file, uploadFile]: any = useState();
   const [fname, updateFname] = useState("");
+  const [uploadBool, setUploadBool] = useState(false);
   const submit = async()=>{
     const formData = new FormData();
     formData.append("file", file);
