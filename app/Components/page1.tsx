@@ -33,6 +33,13 @@ export default function Page1() {
                     setUploadBool(true);
 
                 }}>
+          <input id="dropzone-file" type="file" className="hidden" onChange={(e) => {
+              e.preventDefault();
+              const data: any = e.target.files;
+              uploadFile(data[0]);
+              updateFname(data[0].name);
+              setUploadBool(true);
+          }} />
         </label>
       <button onClick={submit}> Next page
       </button>
