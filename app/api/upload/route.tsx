@@ -4,8 +4,10 @@ import { writeFile,readdir } from "fs/promises";
 
 export const POST = async (req: NextRequest, res: any) => {
     try {
-        const formData = await req.formData();
-        const file = formData.get("file");
+        //const formData = await req.formData();
+        const data = await req.json();
+        const file: File | null = data.get('file') as unknown as File;
+        //const file = formData.get("file");
         if (!file) {
             // If no file is received, return a JSON response with an error and a 400 status code
             return NextResponse.json({ error: "No files received." }, { status: 400 });
