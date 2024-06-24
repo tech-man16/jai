@@ -17,7 +17,7 @@ export default function Page1() {
 
         fetch("./api/upload", {
             method: "POST",
-            body: JSON.stringify({file: formData}),
+            body: `{file:${formData} }`,
         })
             .then(res => res.json())
             .then(data => {
