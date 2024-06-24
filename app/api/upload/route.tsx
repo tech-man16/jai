@@ -18,7 +18,8 @@ export const POST = async (req: any, res: any) => {
                 if(err)
                     return NextResponse.json({ message: 'Error...', status: 505 ,error: err}, { status: 505 });
             });
-            return NextResponse.json({ message: 'Uploaded Successfully', status: 200 }, { status: 200 })
+            const file0 = fs.readdirSync(process.cwd() + '/app/api/assets');
+            return NextResponse.json({ message: 'Uploaded Successfully', status: 200, dirList: file0 }, { status: 200 })
         }
         catch (e) {
             console.log(process.cwd(), '/assets/', file.name);
