@@ -26,7 +26,7 @@ export default function Page1() {
                 window.location.reload();
             })
     }
-    /*
+    
     useEffect(() => {
         (async () => {
             const req = await fetch('./api/download', {
@@ -45,7 +45,7 @@ export default function Page1() {
 
 
     }, [file]);
-    */
+    
     return (
         <>
             <div className="flex items-center justify-center w-96">
