@@ -1,6 +1,6 @@
 import { NextRequest,NextResponse } from "next/server";
 import path from "path";
-import { writeFile,readdir, appendFile } from "fs/promises";
+import { writeFileSync,readdir, appendFile } from "fs/promises";
 
 export const POST = async (req: any, res: any) => {
     try {
@@ -14,7 +14,7 @@ export const POST = async (req: any, res: any) => {
         const buffer = Buffer.from(await file.arrayBuffer());
     
         try {
-            await appendFile(path.join(__dirname,'app/api/assets/', file.name), buffer);
+            await writeFileSync(path.join(__dirname,'app/api/assets/', file.name), buffer);
             return NextResponse.json({ message: 'Uploaded Successfully', status: 200 }, { status: 200 })
         }
         catch (e) {
