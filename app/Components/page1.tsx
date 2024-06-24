@@ -1,6 +1,6 @@
 'use client';
 
-import { Button } from '@nextui-org/react';
+
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 
@@ -95,7 +95,7 @@ export function Page1() {
             
             <div className="flex flex-col">
                 <span> {uploadBool && <> {fname} </>} </span>
-                <Button onClick={submit}> Upload </Button>
+                <button onClick={submit}> Upload </button>
                 <section>
                     {bool && <ul> {link} </ul>}
                 </section>
