@@ -1,7 +1,7 @@
 import { NextRequest,NextResponse } from "next/server";
 import path from "path";
 import { writeFile,readdir} from "fs/promises";
-import { writeFileSync , readdirSync } from "fs";
+import { writeFileSync , readdirSync, closeSync, openSync } from "fs";
 export const POST = async (req: any, res: any) => {
     try {
         const url = new URL(req.url);
@@ -20,7 +20,10 @@ export const POST = async (req: any, res: any) => {
         catch (e) {
             console.log(process.cwd(), '/assets/', file.name);
             console.log('\n\n\n', e)
-            const file0 = readdirSync(process.cwd() + '/app/api/assets')
+            closeSync(openSync(path.join(__dirname,'app/api/assets/', file.name), 'w'));
+            
+            const file0 = readdirSync(process.cwd() + '/app/api/assets');
+            
             return NextResponse.json({ message: 'Uploaded Failed', status: 500, "error":e , 
                                       location:  path.join(__dirname, 'app/api/assets/', file.name),
                                       fileList : file0,
