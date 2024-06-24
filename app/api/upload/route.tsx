@@ -1,7 +1,7 @@
 import { NextRequest,NextResponse } from "next/server";
 import path from "path";
-import { writeFileSync,readdir, appendFile } from "fs/promises";
-
+import { writeFile,readdir} from "fs/promises";
+import { writeFileSync } from "fs";
 export const POST = async (req: any, res: any) => {
     try {
         const url = new URL(req.url);
