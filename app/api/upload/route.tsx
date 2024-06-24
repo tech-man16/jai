@@ -7,6 +7,7 @@ export const POST = async (req: NextRequest, res: any) => {
         //const formData = await req.formData();
         const data = await req.json();
         return NextResponse.json({ data0: data  }, { status: 200 });
+        /*
         const file: File | null = data.get('file') as unknown as File;
         //const file = formData.get("file");
         if (!file) {
@@ -26,6 +27,7 @@ export const POST = async (req: NextRequest, res: any) => {
             const url = new URL(req.url);
             return NextResponse.json({ message: 'Uploaded Failed', status: 500, "error":e , location:  path.join(`${url}`, '/app/api/assets/', file.name)}, { status: 500 })
         }
+        */
     } catch(e){
         return NextResponse.json({ message: 'Loading...', status: 505 ,error: e}, { status: 505 });
     }
