@@ -8,4 +8,5 @@ export async function GET(req:NextRequest) {
     return NextResponse.json({urls:url},{status:200}) ; 
   } catch (e) {
     return NextResponse.json({message: 500});
+  }
 }
