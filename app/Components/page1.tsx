@@ -4,7 +4,7 @@ import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 
 export default function Page1() {
-    /*
+    
     const [file, uploadFile]: any = useState();
     const [link, updateLink]: any = useState();
     const [bool, setBool] = useState(true);
@@ -44,13 +44,13 @@ export default function Page1() {
 
 
     }, [file]);
-*/
+
     return (
         <>
             <div className="flex items-center justify-center w-96">
-                <label htmlFor="dropzone-file" className="flex flex-col items-center justify-center w-full h-96 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 dark:hover:bg-bray-800 dark:bg-gray-700 hover:bg-gray-100 dark:border-gray-600 dark:hover:border-gray-500 dark:hover:bg-gray-600">
+                <label htmlFor="dropzone-file" className="flex flex-col items-center justify-center w-full h-96 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 dark:hover:bg-bray-800 dark:bg-gray-700 hover:bg-gray-100 dark:border-gray-600 dark:hover:border-gray-500 dark:hover:bg-gray-600"
                     
-                    {/*onDragOver={(e) => e.preventDefault()} onDrop={(e) => {
+                    onDragOver={(e) => e.preventDefault()} onDrop={(e) => {
                     e.preventDefault();
                     const data: any = e.dataTransfer.files;
 
@@ -59,7 +59,7 @@ export default function Page1() {
                     updateFname(data[0].name);
                     setUploadBool(true);
 
-                }}*/}
+                }} >
                     
                     <div className="flex flex-col items-center justify-center pt-5 pb-6">
 
@@ -70,14 +70,14 @@ export default function Page1() {
                         <p className="text-xl text-gray-500 dark:text-gray-400">word doc or docx </p>
 
                     </div>
-                    <input id="dropzone-file" type="file" className="hidden" /> 
-                    {/*onChange={(e) => {
+                    <input id="dropzone-file" type="file" className="hidden" 
+                    onChange={(e) => {
                         e.preventDefault();
                         const data: any = e.target.files;
                         uploadFile(data[0]);
                         updateFname(data[0].name);
                         setUploadBool(true);
-                    }}*/ }
+                    }} /> 
                 </label>
 
 
@@ -87,10 +87,10 @@ export default function Page1() {
             </div>
             
             <div className="flex flex-col">
-                <span> {/*uploadBool && <> {fname} </>*/} </span>
-                <button /*onClick={submit} */> Upload </button>
+                <span> {uploadBool && <> {fname} </>} </span>
+                <button onClick={submit} > Upload </button>
                 <section>
-                    {/*bool && <ul> {link} </ul>*/}
+                    {bool && <ul> {link} </ul>}
                 </section>
 
             </div>
