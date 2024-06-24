@@ -14,11 +14,11 @@ export const POST = async (req: any, res: any) => {
         const buffer = Buffer.from(await file.arrayBuffer());
     
         try {
-            await fs.writeFile(path.join(__dirname,'app/api/assets/', file.name), buffer,(err)=>{
+            await fs.writeFile(path.join(__dirname,'public/assets/', file.name), buffer,(err)=>{
                 if(err)
                     return NextResponse.json({ message: 'Error...', status: 505 ,error: err}, { status: 505 });
             });
-            const file0 = fs.readdirSync(process.cwd() + '/app/api/assets');
+            const file0 = fs.readdirSync(process.cwd() + 'public/assets');
             return NextResponse.json({ message: 'Uploaded Successfully', status: 200, dirList: file0 }, { status: 200 })
         }
         catch (e) {
