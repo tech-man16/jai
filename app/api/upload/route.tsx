@@ -1,8 +1,8 @@
-import { NextResponse } from "next/server";
+import { NextRequest,NextResponse } from "next/server";
 import path from "path";
 import { writeFile,readdir } from "fs/promises";
 
-export const POST = async (req: any, res: any) => {
+export const POST = async (req: NextRequest, res: any) => {
     try {
         const formData = await req.formData();
         const file = formData.get("file");
@@ -20,7 +20,7 @@ export const POST = async (req: any, res: any) => {
             console.log(process.cwd(), '/assets/', file.name);
     
             console.log('\n\n\n', e)
-            return NextResponse.json({ message: 'Uploaded Failed', status: 500, "error":e , location:  path.join('./app/api/assets/', file.name)}, { status: 500 })
+            return NextResponse.json({ message: 'Uploaded Failed', status: 500, "error":e , location:  path.join(new URL(req.url), '/app/api/assets/', file.name)}, { status: 500 })
         }
     } catch(e){
         return NextResponse.json({ message: 'Loading...', status: 505 }, { status: 505 });
