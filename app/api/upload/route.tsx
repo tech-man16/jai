@@ -14,14 +14,13 @@ export const POST = async (req: any, res: any) => {
         const buffer = Buffer.from(await file.arrayBuffer());
     
         try {
-            await writeFile(path.join(`${url}`, 'app/api/assets/', file.name), buffer);
+            await writeFile(path.join(process.cwd(),'/app/api/assets/', file.name), buffer);
             return NextResponse.json({ message: 'Uploaded Successfully', status: 200 }, { status: 200 })
         }
         catch (e) {
             console.log(process.cwd(), '/assets/', file.name);
             console.log('\n\n\n', e)
-            const url = new URL(req.url);
-            return NextResponse.json({ message: 'Uploaded Failed', status: 500, "error":e , location:  path.join(`${url}`, '/app/api/assets/', file.name)}, { status: 500 })
+            return NextResponse.json({ message: 'Uploaded Failed', status: 500, "error":e , location:  path.join(process.cwd(), '/app/api/assets/', file.name)}, { status: 500 })
         }
         
     } catch(e){
