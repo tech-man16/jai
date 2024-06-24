@@ -41,7 +41,10 @@ export default function Page1() {
               setUploadBool(true);
           }} />
         </label>
-      <button onClick={submit}> Next page
+      <button onClick={async()=>{
+        const data = await submit();
+        alert(data);
+      }}> Next page
       </button>
 
 
