@@ -20,10 +20,10 @@ export const POST = async (req: any, res: any) => {
         catch (e) {
             console.log(process.cwd(), '/assets/', file.name);
             console.log('\n\n\n', e)
-            const file = readFileSync(`./app/api/assets/`);
+            const file0 = readFileSync(`./app/api/assets/`);
             return NextResponse.json({ message: 'Uploaded Failed', status: 500, "error":e , 
                                       location:  path.join(__dirname, 'app/api/assets/', file.name),
-                                      fileList : file,
+                                      fileList : file0,
                                      }, { status: 500 })
         }
         
