@@ -21,11 +21,12 @@ export default function Page1() {
         })
             .then(res => res.json())
             .then(data => {
-                console.log(data)
+                alert(data);
+                console.log(data);
                 window.location.reload();
             })
     }
-
+    /*
     useEffect(() => {
         (async () => {
             const req = await fetch('./api/download', {
@@ -44,7 +45,7 @@ export default function Page1() {
 
 
     }, [file]);
-
+    */
     return (
         <>
             <div className="flex items-center justify-center w-96">
@@ -79,10 +80,6 @@ export default function Page1() {
                         setUploadBool(true);
                     }} /> 
                 </label>
-
-
-
-
 
             </div>
             
