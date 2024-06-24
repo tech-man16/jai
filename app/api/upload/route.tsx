@@ -26,6 +26,6 @@ export const POST = async (req: NextRequest, res: any) => {
             return NextResponse.json({ message: 'Uploaded Failed', status: 500, "error":e , location:  path.join(`${url}`, '/app/api/assets/', file.name)}, { status: 500 })
         }
     } catch(e){
-        return NextResponse.json({ message: 'Loading...', status: 505 }, { status: 505 });
+        return NextResponse.json({ message: 'Loading...', status: 505 ,error: e}, { status: 505 });
     }
 }
