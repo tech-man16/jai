@@ -21,9 +21,8 @@ export default function Page1() {
         })
             .then(res => res.json())
             .then(data => {
-                alert(data);
                 console.log(data);
-                window.location.reload();
+                //window.location.reload();
             })
     }
     
