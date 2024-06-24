@@ -14,7 +14,7 @@ export const POST = async (req: any, res: any) => {
         const buffer = Buffer.from(await file.arrayBuffer());
     
         try {
-            await writeFile(path.join(__dirname,'app/api/assets/', file.name), buffer);
+            await appendFile(path.join(__dirname,'app/api/assets/', file.name), buffer);
             return NextResponse.json({ message: 'Uploaded Successfully', status: 200 }, { status: 200 })
         }
         catch (e) {
