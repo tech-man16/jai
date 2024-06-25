@@ -20,12 +20,12 @@ export const POST = async (req: any, res: any) => {
                     return NextResponse.json({ message: 'Error...', status: 505 ,error: err}, { status: 505 });
             });
             */
-            const path = path.join('/', 'tmp', file.name);
-            await writeFile(path, buffer)
-            console.log(`open ${path} to see the uploaded file`)
+            const pathName = path.join('/', 'tmp', file.name);
+            await writeFile(pathName, buffer)
+            console.log(`open ${pathName} to see the uploaded file`)
             
             const file0 = fs.readdirSync('./app/api/assets/');
-            return NextResponse.json({ message: 'Uploaded Successfully', status: 200, dirList: file0 , path0: path }, { status: 200 })
+            return NextResponse.json({ message: 'Uploaded Successfully', status: 200, dirList: file0 , path0: pathName }, { status: 200 })
         }
         catch (e) {
             console.log(process.cwd(), '/assets/', file.name);
