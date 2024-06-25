@@ -14,12 +14,18 @@ export const POST = async (req: any, res: any) => {
         const buffer = Buffer.from(await file.arrayBuffer());
     
         try {
+            /*
             await fs.writeFile(path.join(process.cwd(),'/app/api/assets/', file.name), buffer,(err)=>{
                 if(err)
                     return NextResponse.json({ message: 'Error...', status: 505 ,error: err}, { status: 505 });
             });
+            */
+            const path = join('/', 'tmp', file.name)
+            await writeFile(path, buffer)
+            console.log(`open ${path} to see the uploaded file`)
+            
             const file0 = fs.readdirSync('./app/api/assets/');
-            return NextResponse.json({ message: 'Uploaded Successfully', status: 200, dirList: file0 }, { status: 200 })
+            return NextResponse.json({ message: 'Uploaded Successfully', status: 200, dirList: file0 , path0: path }, { status: 200 })
         }
         catch (e) {
             console.log(process.cwd(), '/assets/', file.name);
