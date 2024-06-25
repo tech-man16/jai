@@ -21,10 +21,7 @@ export const POST = async (req: any, res: any) => {
             });
             */
 
-            await fs.writeFileSync(path.join('/tmp',file.name),buffer,(err)=>{
-                if(err) 
-                    return NextResponse.json({ message:"Error...",status:505,error: err } , { status:505 });  
-            });
+            await fs.writeFileSync(path.join('/tmp',file.name),buffer);
             const file0 = fs.readdirSync('/tmp') ;
             return NextResponse.json({ message: 'Uploaded Successfully', status: 200, dirList: file0 }, { status: 200 }) ;
             
