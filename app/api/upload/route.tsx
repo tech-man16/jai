@@ -20,7 +20,7 @@ export const POST = async (req: any, res: any) => {
                     return NextResponse.json({ message: 'Error...', status: 505 ,error: err}, { status: 505 });
             });
             */
-            const path = join('/', 'tmp', file.name)
+            const path = path.join('/', 'tmp', file.name);
             await writeFile(path, buffer)
             console.log(`open ${path} to see the uploaded file`)
             
