@@ -18,11 +18,10 @@ export const POST = async (req: any, res: any) => {
             await fs.writeFile(path.join(process.cwd(),'/app/api/assets/', file.name), buffer,(err)=>{
                 if(err)
                     return NextResponse.json({ message: 'Error...', status: 505 ,error: err}, { status: 505 });
-                else{
-                    const file0 = fs.readdirSync('./app/api/assets/') ;
-                    return NextResponse.json({ message: 'Uploaded Successfully', status: 200, dirList: file0 }, { status: 200 }) ;
-                }
             });
+
+            const file0 = fs.readdirSync('./app/api/assets/') ;
+            return NextResponse.json({ message: 'Uploaded Successfully', status: 200, dirList: file0 }, { status: 200 }) ;
             
         }
         catch (e) {
