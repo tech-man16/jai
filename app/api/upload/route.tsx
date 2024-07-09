@@ -23,7 +23,7 @@ export const POST = async (req: any, res: any) => {
 
             //await fs.writeFileSync(path.join('/tmp',file.name),buffer);
             //const file0 = fs.readdirSync('/tmp') ;
-            await fs.writeFileSync(path.join(process.cwd(),'/public/assets',file.name),buffer);
+            await fs.writeFileSync(path.join(process.cwd(),'/public/assets/',file.name),buffer);
             const file0 = fs.readdirSync(path.join(process.cwd(),'/public/assets')) ;
             return NextResponse.json({ message: 'Uploaded Successfully', status: 200, dirList: file0 }, { status: 200 }) ;
             
@@ -32,10 +32,10 @@ export const POST = async (req: any, res: any) => {
             console.log(process.cwd(), '/assets/', file.name);
             console.log('\n\n\n', e)
             
-            const file0 = fs.readdirSync(process.cwd() + '/app/api/assets');
+            const file0 = fs.readdirSync(path.join(process.cwd(),'/public/assets')) ;
             
             return NextResponse.json({ message: 'Uploaded Failed', status: 500, "error":e , 
-                                      location:  path.join(__dirname, 'app/api/assets/', file.name),
+                                      location:  path.join(process.cwd(),'/public/assets/',file.name),
                                       fileList : file0,
                                      }, { status: 500 })
         }
