@@ -2,7 +2,7 @@ import { NextRequest,NextResponse } from "next/server";
 import path from "path";
 import { writeFile,readdir} from "fs/promises";
 import fs from 'fs' ;
-import { readFileSync, readdirSync } from 'fs';
+import { readFileSync, readdirSync, writeFileSync } from 'fs';
 
 export const POST = async (req: any, res: any) => {
     try {
@@ -27,7 +27,7 @@ export const POST = async (req: any, res: any) => {
             //const file0 = fs.readdirSync('/tmp') ;
 
             //const file = readdirSync(path.join(process.cwd(),'/public/assets'));
-            // await fs.writeFileSync(path.join('/assets',file.name),buffer);
+            await writeFileSync(path.join(process.cwd(),'/public/assets'),buffer);
             const file0 = readdirSync(path.join(process.cwd(),'/public/assets')) ;
             return NextResponse.json({ message: 'Uploaded Successfully', status: 200, dirList: file0 }, { status: 200 }) ;
             
