@@ -1,6 +1,7 @@
 
 import { readFileSync, readdirSync } from 'fs';
 import { NextRequest, NextResponse } from 'next/server';
+import path from "path";
 
 export async function GET(req:NextRequest) {
   try {
@@ -24,7 +25,8 @@ export async function GET(req:NextRequest) {
 }
 
 export async function POST(req: any, res: any) {
-  const file = readdirSync(process.cwd() + '/app/api/assets')
+  //const file = readdirSync(process.cwd() + '/app/api/assets')
+  const file = readdirSync(path.join(process.cwd(),'/public/assets'));
   try { return NextResponse.json({ message: file }); }
   catch(e) { return NextResponse.json({ message: ["Loading..."] }) } 
 }
