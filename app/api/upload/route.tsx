@@ -23,8 +23,8 @@ export const POST = async (req: any, res: any) => {
 
             //await fs.writeFileSync(path.join('/tmp',file.name),buffer);
             //const file0 = fs.readdirSync('/tmp') ;
-            await fs.writeFileSync(path.join(process.cwd(),'/public/assets/',file.name),buffer);
-            const file0 = fs.readdirSync(path.join(process.cwd(),'/public/assets')) ;
+            await fs.writeFileSync(path.join('/public/assets/',file.name),buffer);
+            const file0 = fs.readdirSync(path.join('/public/assets')) ;
             return NextResponse.json({ message: 'Uploaded Successfully', status: 200, dirList: file0 }, { status: 200 }) ;
             
         }
