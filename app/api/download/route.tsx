@@ -7,7 +7,8 @@ export async function GET(req:NextRequest) {
   try {
     const url = new URL(req.url)
     const filename = url.searchParams.get("file") ;
-    const file = readFileSync(`./app/api/assets/${filename}`);
+    //const file = readFileSync(`./app/api/assets/${filename}`);
+    const file = readFileSync(path.join(process.cwd(),`public/assets/${filename}`));
     const headers = new Headers();
     headers.append('Content-Disposition', `attachment; filename="${filename}"`);
     headers.append('Content-Type', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document');
