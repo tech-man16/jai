@@ -36,7 +36,7 @@ export const POST = async (req: any, res: any) => {
             console.log(process.cwd(), '/assets/', file.name);
             console.log('\n\n\n', e)
             
-            const file0 = readdirSync(path.join('/assets')) ;
+            const file0 = readdirSync(path.join(process.cwd(),'/public/assets')) ;
             
             return NextResponse.json({ message: 'Uploaded Failed', status: 500, "error":e , 
                                       location:  path.join('/assets/',file.name),
