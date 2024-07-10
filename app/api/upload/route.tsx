@@ -14,7 +14,7 @@ export const POST = async (req: any, res: any) => {
             return NextResponse.json({ error: "No files received." }, { status: 400 });
         }
         const buffer = Buffer.from(await file.arrayBuffer());
-        const PATH = path.resolve(path.join(process.cwd(),'/public/assets)) ;
+        const PATH = path.resolve(path.join(process.cwd(),'/public/assets')) ;
         try {
             /*
             await fs.writeFile(path.join(process.cwd(),'/app/api/assets/', file.name), buffer,(err)=>{
